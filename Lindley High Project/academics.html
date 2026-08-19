@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LHS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+    <nav id="menu">
+        <a href="index.html">Home</a>
+        <a href="academics.html">Academics</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About Us</a>
+    </nav>
+
+    <div class="academics">
+
+        <main>
+
+            <h1>Academics</h1>
+
+            <p>
+                At Lindley High School, we are committed to providing quality
+                education that prepares learners for future academic and career
+                opportunities.
+            </p>
+
+            <h2>Grade 8–9 Subjects</h2>
+
+            <ul>
+                <li>Creative Arts</li>
+                <li>Technology</li>
+                <li>Life Orientation (L.O.)</li>
+                <li>Economic and Management Sciences (EMS)</li>
+                <li>Natural Sciences (NS)</li>
+                <li>English</li>
+                <li>Sesotho / Afrikaans</li>
+                <li>Mathematics</li>
+            </ul>
+
+
+            <h2>Grade 10–12 Subjects</h2>
+
+            <ul>
+                <li>Mathematics / Mathematical Literacy</li>
+                <li>Afrikaans / Sesotho</li>
+                <li>Life Sciences / Business Studies</li>
+                <li>Physical Sciences / CAT / History</li>
+                <li>Accounting / Geography / Tourism</li>
+                <li>English</li>
+                <li>Life Orientation (L.O.)</li>
+
+            </ul>
+
+
+            <h2>School Application Form</h2>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+
+            <fieldset>
+                <legend>Learner Information</legend>
+
+                <label for="learner-name">Learner Full Name:</label>
+                <input type="text" id="learner-name"
+                    name="learner-name" required>
+
+                <br><br>
+
+                <label for="date-of-birth">Date of Birth:</label>
+                <input type="date" id="date-of-birth"
+                    name="date-of-birth" required>
+
+                <br><br>
+
+                <label for="grade">Grade Applying For:</label>
+                <select id="grade" name="grade" required>
+                    <option value="">Select Grade</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+            <div id="subjectSection" style="display: none;">
+
+                <h3>Choose Your Subjects</h3>
+
+                <label for="subject1">Group 1:</label>
+                <select id="subject1" name="subject1">
+                    <option value="">Select Subject</option>
+                    <option value="mathematics">Maths</option>
+                    <option value="maths-literacy">Maths Literacy</option>
+                </select>
+
+                <label for="subject2">Group 2:</label>
+                <select id="subject2" name="subject2">
+                    <option value="">Select Subject</option>
+                    <option value="afrikaans">Afrikaans</option>
+                    <option value="sesotho">Sesotho</option>
+                </select>
+
+                <label for="subject3">Group 3:</label>
+                <select id="subject3" name="subject3">
+                    <option value="">Select Subject</option>
+                    <option value="life-science">Life Science</option>
+                    <option value="business-studies">Business Studies</option>
+                </select>
+
+                <label for="subject4">Group 4:</label>
+                <select id="subject4" name="subject4">
+                    <option value="">Select Subject</option>
+                    <option value="physics">Physics</option>
+                    <option value="computer-applications-technology">
+                        Computer Application Technology
+                    </option>
+                    <option value="history">History</option>
+                </select>
+
+                <label for="subject5">Group 5:</label>
+                <select id="subject5" name="subject5">
+                    <option value="">Select Subject</option>
+                    <option value="accounting">Accounting</option>
+                    <option value="geography">Geography</option>
+                    <option value="tourism">Tourism</option>
+                </select>
+
+                <h3>Compulsory Subjects</h3>
+
+                <p>✓ English</p>
+                <p>✓ Life Orientation</p>
+
+            </div>
+
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                <legend>Parent / Guardian Information</legend>
+
+                <label for="parent-name">Parent / Guardian Name:</label>
+                <input type="text" id="parent-name"
+                    name="parent-name" required>
+
+                <br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone"
+                    name="phone" required>
+
+                <br><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email"
+                    name="email">
+
+                <br><br>
+
+                <label for="address">Home Address:</label>
+                <textarea id="address"
+                        name="address"
+                        rows="4"></textarea>
+
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                <legend>Required Documents</legend>
+
+                <label for="learner-id">Learner's ID / Birth Certificate:</label>
+                <input type="file"
+                    id="learner-id"
+                    name="learner-id"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required>
+
+                <br><br>
+
+                <label for="school-report">Latest School Report:</label>
+                <input type="file"
+                    id="school-report"
+                    name="school-report"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required>
+
+                <br><br>
+
+                <label for="mother-id">Mother's / Father's ID</label>
+                <input type="file"
+                    id="mother-id"
+                    name="mother-id"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required>
+                <br><br>
+                
+                <label for="mother-id">Guardian's ID</label>
+                <input type="file"
+                    id="mother-id"
+                    name="mother-id"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required>
+
+            </fieldset>
+
+    <br>
+
+    <button type="submit">Submit Application</button>
+    <button type="reset">Clear Form</button>
+
+        </form>
+
+
+            <h2>Top Academic Learners - Term 2 📚🏆</h2>
+
+<button type="button" id="viewTopLearners">View Top Learners</button>
+
+<div id="learnerResults">
+
+    <section id="grade8">
+        <h3><button type="button" class="grade-button">Grade 8</button></h3>
+        <div class="grade-content">
+            <h4>Top 5 Academic Learners</h4>
+            <ol>
+                <li>Mzizi Reabetswe Kananelo</li>
+                <li>Masakala Tlhohonolofatso</li>
+                <li>Mokoena Paballo</li>
+                <li>Hadebe Amukelani</li>
+                <li>Nkadinde Jabulile</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="grade9">
+        <h3><button type="button" class="grade-button">Grade 9</button></h3>
+        <div class="grade-content">
+            <h4>Top 5 Academic Learners</h4>
+            <ol>
+                <li>Motjamane Limpo</li>
+                <li>Sieberhagen Franco</li>
+                <li>Mokoena Masentle</li>
+                <li>Mbele Thandazile</li>
+                <li>Moreke Mamoseme</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="grade10">
+        <h3><button type="button" class="grade-button">Grade 10</button></h3>
+        <div class="grade-content">
+            <h4>Top 5 Academic Learners</h4>
+            <ol>
+                <li>Mokubung Manana</li>
+                <li>Kambule Phakamile</li>
+                <li>Tshabalala Zandile</li>
+                <li>Mbongo Ntshadi</li>
+                <li>Mokoena Bokamoso</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="grade11">
+        <h3><button type="button" class="grade-button">Grade 11</button></h3>
+        <div class="grade-content">
+            <h4>Top 5 Academic Learners</h4>
+            <ol>
+                <li>Thabne Lefu</li>
+                <li>Radebe Nyakallo</li>
+                <li>Ramaisa Nosipho</li>
+                <li>Kambule Nomakhosi</li>
+                <li>Mofokeng Keneth</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="grade12">
+        <h3><button type="button" class="grade-button">Grade 12</button></h3>
+        <div class="grade-content">
+            <h4>Top 10 Academic Learners</h4>
+            <ol>
+                <li>Msimanga Mpumelelo</li>
+                <li>Mareletse Lebohang</li>
+                <li>Mabizela Bophelo</li>
+                <li>Mofokeng Paballo</li>
+                <li>Mosi Itumeleng</li>
+                <li>Makume Rethabile</li>
+                <li>Nthebe Selloane</li>
+                <li>Sekoai Lebohang</li>
+                <li>Mthembu Lindiwe</li>
+                <li>Malika Matshediso</li>
+            </ol>
+        </div>
+    </section>
+
+</div>
+   
+<script src="script.js"></script>
+</body>
+</html>
