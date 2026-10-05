@@ -1,0 +1,525 @@
+/* ==========================================================================
+   Lindley High School — Stylesheet
+   Palette drawn from the school sign: kelly green, sunrise orange, white,
+   set against deep ink green text. The rising-sun crest ("Exerce
+   Perfectioni") is echoed throughout as a radiating sunburst motif.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root {
+    --green-dark:   #0f6b2c;
+    --green:        #1b8a3d;
+    --green-deep:   #0a4b1f;
+    --orange:       #f0791c;
+    --orange-light: #f4a93c;
+    --white:        #ffffff;
+    --ink:          #16281a;
+    --ink-soft:     #3c5245;
+    --mist:         #f4faf6;
+    --line:         #dfe9e2;
+
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body:    'Inter', sans-serif;
+    --font-mono:    'IBM Plex Mono', monospace;
+
+    --radius: 10px;
+    --shadow: 0 6px 20px rgba(15, 107, 44, 0.12);
+}
+
+/* ---------- Reset & base ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--mist);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--green-deep);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    margin: 0 0 0.5em;
+}
+
+h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    text-transform: uppercase;
+    padding-bottom: 0.35em;
+    border-bottom: 3px solid var(--orange);
+    display: inline-block;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: var(--green);
+}
+
+h4 {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--orange);
+    font-weight: 500;
+}
+
+p {
+    margin: 0 0 1em;
+    color: var(--ink-soft);
+    max-width: 65ch;
+}
+
+a {
+    color: var(--green);
+}
+
+/* ---------- Signature sunburst backdrop ---------- */
+/* Radiating stripes echo the crest's rising sun. Used sparingly, behind
+   the page's opening statement, never as generic decoration elsewhere. */
+
+.home,
+.contact-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--green-deep);
+    color: var(--white);
+    padding: 4rem 6vw 5rem;
+}
+
+.home::before,
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -55%;
+    width: 160%;
+    padding-top: 160%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            var(--orange) 0deg 6deg,
+            var(--orange-light) 6deg 9deg,
+            transparent 9deg 20deg
+        );
+    opacity: 0.16;
+    pointer-events: none;
+}
+
+.home > *,
+.contact-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.home h1,
+.contact-hero h1 {
+    color: var(--white);
+}
+
+.home h2 {
+    color: var(--orange-light);
+    border-bottom-color: var(--orange-light);
+}
+
+.home p,
+.contact-hero p {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.home main {
+    max-width: 780px;
+}
+
+/* ---------- Navigation ---------- */
+
+.menu-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    padding: 0.6em 1.1em;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    border-radius: var(--radius);
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.menu-button:hover {
+    background: var(--green-dark);
+    transform: translateY(-1px);
+}
+
+.menu-button:focus-visible {
+    outline: 3px solid var(--orange-light);
+    outline-offset: 2px;
+}
+
+#menu {
+    display: none;
+    position: fixed;
+    top: 4.2rem;
+    left: 1rem;
+    z-index: 99;
+    background: var(--white);
+    border-top: 4px solid var(--orange);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 0.5rem;
+    min-width: 200px;
+    flex-direction: column;
+}
+
+#menu a {
+    display: block;
+    padding: 0.7em 1em;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+#menu a:hover,
+#menu a:focus-visible {
+    background: var(--mist);
+    color: var(--green-dark);
+    padding-left: 1.3em;
+    border-left: 3px solid var(--orange);
+}
+
+/* ---------- Main content shell ---------- */
+
+main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 5.5rem 6vw 4rem;
+}
+
+.academics main,
+.contact-page main {
+    background: transparent;
+}
+
+.academics {
+    background: var(--mist);
+}
+
+ul, ol {
+    color: var(--ink-soft);
+    padding-left: 1.4em;
+}
+
+ul li, ol li {
+    margin-bottom: 0.35em;
+}
+
+/* Subject lists get a quiet mono tag feel, since they're structured data */
+.academics ul li::marker {
+    color: var(--orange);
+}
+
+/* ---------- Forms ---------- */
+
+form {
+    margin-top: 1.5rem;
+}
+
+fieldset {
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--green);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    background: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--green-deep);
+    padding: 0 0.5em;
+}
+
+label {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--ink);
+    margin-bottom: 0.3em;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    max-width: 420px;
+    padding: 0.6em 0.8em;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--white);
+    margin-bottom: 0.2em;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 1px;
+    border-color: var(--orange);
+}
+
+textarea {
+    max-width: 100%;
+    resize: vertical;
+}
+
+#subjectSection {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--line);
+}
+
+#subjectSection label {
+    margin-top: 0.6em;
+}
+
+button[type="submit"],
+button[type="reset"],
+#viewTopLearners,
+.grade-button {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 0.7em 1.6em;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+button[type="submit"] {
+    background: var(--orange);
+    color: var(--white);
+}
+
+button[type="submit"]:hover {
+    background: #d9660d;
+    transform: translateY(-1px);
+}
+
+button[type="reset"] {
+    background: transparent;
+    color: var(--ink-soft);
+    border-color: var(--line);
+    margin-left: 0.75em;
+}
+
+button[type="reset"]:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* ---------- Top learners ---------- */
+
+#viewTopLearners {
+    background: var(--green);
+    color: var(--white);
+    display: block;
+    margin: 0.75rem 0 1.5rem;
+}
+
+#viewTopLearners:hover {
+    background: var(--green-dark);
+}
+
+#learnerResults section {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+#learnerResults h3 {
+    margin: 0;
+}
+
+.grade-button {
+    width: 100%;
+    text-align: left;
+    background: var(--mist);
+    color: var(--green-deep);
+    border: none;
+    border-radius: 0;
+    padding: 0.9em 1.25em;
+    position: relative;
+}
+
+.grade-button::after {
+    content: "▸";
+    position: absolute;
+    right: 1.25em;
+    color: var(--orange);
+    transition: transform 0.15s ease;
+}
+
+.grade-button:hover {
+    background: #e9f4ec;
+}
+
+.grade-content {
+    display: none;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.grade-content h4 {
+    margin-top: 0.5em;
+}
+
+.grade-content ol {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    counter-reset: none;
+}
+
+.grade-content ol li {
+    padding: 0.3em 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.grade-content ol li:first-child {
+    color: var(--orange);
+    font-weight: 500;
+}
+
+/* ---------- Contact page ---------- */
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.contact-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border-top: 4px solid var(--orange);
+    box-shadow: var(--shadow);
+    padding: 1.5rem 1.75rem;
+}
+
+.contact-card h2 {
+    font-size: 1.2rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contact-card a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+    color: var(--orange);
+}
+
+.location-section {
+    margin-top: 2rem;
+}
+
+.location-section iframe {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    background: var(--green-deep);
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 2rem 6vw;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+}
+
+footer p {
+    color: inherit;
+    margin: 0.3em auto;
+}
+
+/* ---------- Motion & accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+    main {
+        padding-top: 4.5rem;
+    }
+
+    .home,
+    .contact-hero {
+        padding: 3rem 6vw 3.5rem;
+    }
+
+    fieldset {
+        padding: 1.25rem;
+    }
+
+    button[type="reset"] {
+        margin-left: 0;
+        margin-top: 0.6em;
+        display: block;
+    }
+}
